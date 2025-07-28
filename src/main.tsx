@@ -28,10 +28,11 @@ const queryClient = new QueryClient({
 });
 
 // Create a new router instance
+const basePathN = "/admin/search-ui"
 const router = createRouter({
 	routeTree,
 	// why not use import.meta.env.BASE_PATH? ref: https://cn.vite.dev/guide/env-and-mode.html#env-variables
-	basepath: import.meta.env.BASE_URL || "/",
+	basepath: basePathN,
 	context: {
 		queryClient,
 	},

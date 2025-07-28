@@ -27,9 +27,10 @@ export default defineConfig(({ mode }) => {
 	// Set the third parameter to "" to load all environment variables,
 	// regardless of whether they exist or not 'VITE_' prefix.
 	const env = loadEnv(mode, process.cwd(), "");
-	env.BASE_PATH && console.debug("Using custom base path:", env.BASE_PATH);
+	// env.BASE_PATH && console.debug("Using custom base path:", env.BASE_PATH);
+	const basePath = "/admin/search-ui"
 	return {
-		base: env.BASE_PATH || "/",
+		base: basePath,
 		plugins: [
 			tsconfigPaths({ root: "./" }),
 			react(),
