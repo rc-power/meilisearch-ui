@@ -7,7 +7,7 @@ import "./lib/i18n";
 import { AppProvider } from "@/providers";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { RouterProvider, createHashHistory, createRouter } from "@tanstack/react-router";
 import { NotFound } from "./components/biz/404";
 import { Logo } from "./components/common/logo";
 import { Loader } from "./components/common/Loader";
@@ -28,11 +28,11 @@ const queryClient = new QueryClient({
 });
 
 // Create a new router instance
-const basePathN = "/admin/search-ui"
 const router = createRouter({
 	routeTree,
+	history: createHashHistory({ window }),
 	// why not use import.meta.env.BASE_PATH? ref: https://cn.vite.dev/guide/env-and-mode.html#env-variables
-	basepath: basePathN,
+	basepath: import.meta.env.VITE_BASE_URL || "/",
 	context: {
 		queryClient,
 	},

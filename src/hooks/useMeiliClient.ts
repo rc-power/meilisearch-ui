@@ -25,12 +25,12 @@ export const useMeiliClient = () => {
 			console.debug("useMeilisearchClient", "connection config lost");
 			if (!isSingletonMode()) {
 				// do not use useNavigate, because maybe in first render
-				window.location.assign(import.meta.env.BASE_URL ?? "/");
+				window.location.assign(import.meta.env.VITE_BASE_URL ?? "/");
 			} else {
 				setWarningPageData({ prompt: t("instance:singleton_cfg_not_found") });
 				// do not use useNavigate, because maybe in first render
-				if (import.meta.env.BASE_URL !== "/") {
-					window.location.assign(`${import.meta.env.BASE_URL || ""}/warning`);
+				if (import.meta.env.VITE_BASE_URL !== "/") {
+					window.location.assign(`${import.meta.env.VITE_BASE_URL || ""}/warning`);
 				} else {
 					window.location.assign("/warning");
 				}
@@ -46,12 +46,12 @@ export const useMeiliClient = () => {
 			toast.error(t("connection_failed"));
 			if (!isSingletonMode()) {
 				// do not use useNavigate, because maybe in first render
-				window.location.assign(import.meta.env.BASE_URL ?? "/");
+				window.location.assign(import.meta.env.VITE_BASE_URL ?? "/");
 			} else {
 				setWarningPageData({ prompt: t("instance:singleton_cfg_not_found") });
 				// do not use useNavigate, because maybe in first render
-				if (import.meta.env.BASE_URL !== "/") {
-					window.location.assign(`${import.meta.env.BASE_URL || ""}/warning`);
+				if (import.meta.env.VITE_BASE_URL !== "/") {
+					window.location.assign(`${import.meta.env.VITE_BASE_URL || ""}/warning`);
 				} else {
 					window.location.assign("/warning");
 				}
